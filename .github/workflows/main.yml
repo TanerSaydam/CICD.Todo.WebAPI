@@ -22,4 +22,7 @@ jobs:
       run: dotnet restore ./CICD.Todo.WebAPI.sln
 
     - name: Build
-      run: dotnet build ./CICD.Todo.WebAPI.sln --configuration Release --no-restore    
+      run: dotnet build ./CICD.Todo.WebAPI.sln --configuration Release
+
+    - name: Publish
+      run: dotnet publish ./CICD.Todo.WebAPI.sln --configuration Release --no-build
