@@ -25,7 +25,7 @@ jobs:
       run: dotnet build ./CICD.Todo.WebAPI.sln --configuration Release
 
     - name: Publish
-      run: dotnet publish ./CICD.Todo.WebAPI.sln --configuration Release --no-build --output './publish'
+      run: dotnet publish ./CICD.Todo.WebAPI.csproj --configuration Release --no-build --output './publish'
 
     - name: Deployment
       uses: azure/webapps-deploy@v2
