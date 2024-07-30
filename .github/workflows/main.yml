@@ -1,0 +1,25 @@
+name: Publish 🎉
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+    - master
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+
+    steps: 
+    - uses: actions/checkout@v3
+
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: '8.0.x'
+
+    - name: Restore
+      run: dotnet restore ./CICD.Todo.WebAPI.sln
+
+    - name: Build
+      run: dotnet build ./CICD.Todo.WebAPI.sln --configuration Release --no-build    
